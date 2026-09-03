@@ -1,0 +1,13 @@
+body{
+    background-color: pink;
+}
+
+p {
+    background-color: greenyellow;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+a {
+    text-decoration: none;    
+}
