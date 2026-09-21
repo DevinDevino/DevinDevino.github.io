@@ -1,5 +1,5 @@
 body{
-    background-image: url(../img/dark-black-purple.jpg);
+    background-image: url(../img/black-yellow.jpg);
     background-size: cover;
     background-color: rgb(0, 0, 0);
 }
@@ -19,26 +19,12 @@ nav {
 
 .box{
     text-transform: uppercase;
-    color:rgb(200,175,255);
-    display: inline-block;
-    padding: 10px;
-    background-color: black;
-    border: 2px solid purple;
-    border-radius: 100px;
-    padding: 10px;
-    margin: 5px;
-    text-decoration: none;
-}
-
-.BottomBox{
-    text-transform: uppercase;
     color:yellow;
     display: inline-block;
     padding: 10px;
     background-color: black;
     border: 1px solid yellow;
     border-radius: 100px;
-    padding: 10px;
     margin: 5px;
     text-decoration: none;
 }
@@ -49,32 +35,34 @@ nav {
     transition: transform 0.3s ease;
 }
 
-.BottomBox:hover {
-    background-color: black;
-    transform:scale(1.1);
-    transition:transform 0.3s ease;
-}
-
 main {
-    text-align: center;
+    text-align: left;
+    margin-left: 50px;
 }
 
 .HeadTekst {
-    text-transform: uppercase;
     color: lightgray;
-    font-size: 93px;
+    font-size: 120px;
     font-family: sans-serif;
     max-width: 1130px;
-    margin: 0 auto;
+    margin-bottom: auto;
+    margin-top:10px;
+}
+
+.div {
+    max-width: fit-content;
+    padding: 5px;
+    border: 1px solid yellow;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50px;
 }
 
 .Tekst {
     color: lightgray;
     font-size: 25px;
-    font-family: sans-serif;
+    font-family: cursive;
     max-width: 800px;
-    border-radius: 20px;
-    margin: 0 auto;
+    margin-top: auto;
 }
 
 .name {
@@ -82,21 +70,28 @@ main {
     font-family: sans-serif;
     font-size: 3rem;
     background:linear-gradient(to right,
-    orange, purple, orange, purple, orange);
+    orange, yellow, orange, yellow, orange);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .student {
-    color: rgb(156, 62, 159);
+    color: yellow;
     display: inline-block;
     padding: 10px;
     background-color: black;
-    border: 1px solid rgb(156, 62, 159);
+    border: 1px solid yellow;
+    border-radius: 100px;
     padding: 10px;
     margin: 5px;
 }
 
-footer {
-    color: white;
+.Seperator{
+    display: flex;
+}
+
+img {
+    margin-left: 30px;
+    height: 500px;
+    width: 300px;
 }

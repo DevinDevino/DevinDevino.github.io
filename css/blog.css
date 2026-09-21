@@ -1,0 +1,124 @@
+body {
+  background-image: url(../img/cyan-black.jpg);
+  background-size: cover;
+  background-color: rgb(0, 0, 0);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgb(7, 6, 6);
+}
+nav {
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+}
+
+.box {
+  text-transform: uppercase;
+  color: cyan;
+  display: inline-block;
+  padding: 10px;
+  background-color: black;
+  border: 1px solid cyan;
+  border-radius: 100px;
+  padding: 10px;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.box:hover {
+  background-color: black;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+main {
+  text-align: center;
+}
+
+h2 {
+  color: lightgray;
+  font-size: 120px;
+  font-family: sans-serif;
+  max-width: 1130px;
+  margin: 0 auto;
+}
+
+.Tekst {
+  color: lightgray;
+  font-size: 25px;
+  font-family: sans-serif;
+  max-width: 800px;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.name {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 3rem;
+  background: linear-gradient(to right, orange, cyan, orange, cyan, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: cyan;
+  display: inline-block;
+  padding: 10px;
+  background-color: black;
+  border: 1px solid cyan;
+  border-radius: 100px;
+  padding: 10px;
+  margin: 5px;
+}
+
+h2 {
+}
+
+.Links,
+.Rechts {
+  width: 70%;
+  padding: 30px;
+  margin-bottom: 35px;
+  border: 1px solid white;
+  border-radius: 12px;
+  background-color: #1a1a1a;
+  transition: 0.25s;
+}
+
+.Links {
+  margin-right: auto;
+}
+
+.Rechts {
+  margin-left: auto;
+}
+
+.Links:hover,
+.Rechts:hover {
+  transform: translateY(-5px);
+  border-color: cyan;
+}
+
+.Links h1,
+.Rechts h1 {
+  color: cyan;
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.Links p,
+.Rechts p {
+  color: #aaa;
+  line-height: 1.6;
+}
+
+h3{
+    color: #00ff2f
+}
