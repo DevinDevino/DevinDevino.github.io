@@ -122,3 +122,16 @@ h2 {
 h3{
     color: #00ff2f
 }
+#filter {
+  color: cyan;
+  background-color: black;
+  border: 1px solid cyan;
+  border-radius: 100px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 16px;
+}
+
+#filter:hover {
+    border-color: white;
+}
