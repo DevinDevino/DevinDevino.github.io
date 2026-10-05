@@ -11,10 +11,16 @@ header {
     border-radius: 20px;
     background-color: rgb(7, 6, 6);
 }
-nav {
-    display: flex;
-    justify-content: right;
-    gap: 10px;
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 .box{
@@ -42,7 +48,7 @@ main {
 
 .HeadTekst {
     color: lightgray;
-    font-size: 120px;
+    font-size: clamp(3rem, 2vw, 125px);
     font-family: sans-serif;
     max-width: 1130px;
     margin-bottom: auto;
@@ -59,7 +65,7 @@ main {
 
 .Tekst {
     color: lightgray;
-    font-size: 25px;
+    font-size: clamp(1rem, 2vw, 25px);
     font-family: cursive;
     max-width: 800px;
     margin-top: auto;
@@ -91,7 +97,9 @@ main {
 }
 
 img {
-    margin-left: 30px;
-    height: 500px;
-    width: 300px;
+    margin: 10px 0;
+    max-width: 100%;
+    max-height: 400px;
+    height: auto;
+    border-radius: 20px;
 }

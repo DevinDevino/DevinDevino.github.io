@@ -1,11 +1,7 @@
-* {
-    box-sizing: border-box;
-}
-
 body{
-    background-image: url(../img/dark-black-purple.jpg);
+    background-image: url(../img/red-black.jpg);
     background-size: cover;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 254, 254);
 }
 header {
 
@@ -27,27 +23,13 @@ header {
     }
 }
 
-
 .box{
     text-transform: uppercase;
-    color:rgb(200,175,255);
+    color:red;
     display: inline-block;
     padding: 10px;
     background-color: black;
-    border: 2px solid purple;
-    border-radius: 100px;
-    padding: 10px;
-    margin: 5px;
-    text-decoration: none;
-}
-
-.BottomBox{
-    text-transform: uppercase;
-    color:yellow;
-    display: inline-block;
-    padding: 10px;
-    background-color: black;
-    border: 1px solid yellow;
+    border: 1px solid red;
     border-radius: 100px;
     padding: 10px;
     margin: 5px;
@@ -60,20 +42,13 @@ header {
     transition: transform 0.3s ease;
 }
 
-.BottomBox:hover {
-    background-color: black;
-    transform:scale(1.1);
-    transition:transform 0.3s ease;
-}
-
 main {
     text-align: center;
 }
 
 .HeadTekst {
-    text-transform: uppercase;
     color: lightgray;
-    font-size: clamp(2rem, 6vw, 93px);
+    font-size: 120px;
     font-family: sans-serif;
     max-width: 1130px;
     margin: 0 auto;
@@ -93,40 +68,71 @@ main {
     font-family: sans-serif;
     font-size: 3rem;
     background:linear-gradient(to right,
-    orange, purple, orange, purple, orange);
+    orange, red, orange, red, orange);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .student {
+    text-transform: uppercase;
+    font-weight: bold;
     color: rgb(156, 62, 159);
     display: inline-block;
     padding: 10px;
     background-color: black;
     border: 1px solid rgb(156, 62, 159);
+    border-radius: 100px;
     padding: 10px;
     margin: 5px;
 }
 
-footer {
+@media (max-width:700px) {
+    .contact-layout {
+        flex-direction: column;
+        gap:20px
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+}
+.contact-layout {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 1100px;
+    margin:40 auto;
+    padding:20px
+}
+
+.contact-info{
     color: white;
-}
-
-.random-fox {
-    background-color: black;
-    border-radius: 20px;
-    width: auto;
-    max-width: 500px;
-    height: auto;
-    margin: 20px auto;
-    padding: 20px;
-    box-shadow: 0px 0px 10px 5px rgb(255, 152, 203);
-    color: lightgray;
-}
-
-.fox-image {
-    width: 50%;
     max-width: 400px;
-    height: auto;
+    text-align: left;
+    background-color: rgb(7, 6, 6);
+    padding: 20px;
     border-radius: 20px;
+}
+
+.red{
+    color: red;
+}
+
+h2{
+    font-size: clamp(1.5rem, 2vw, 40px)
+}
+
+.contact-container{
+    max-width: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.error-message {
+    color: red;
+    font-size: clamp(0.8rem, 1vw, 1rem);
 }

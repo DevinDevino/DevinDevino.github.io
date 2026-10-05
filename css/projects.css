@@ -4,16 +4,23 @@ body {
   background-color: rgb(0, 0, 0);
 }
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 20px;
-  background-color: rgb(7, 6, 6);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    background-color: rgb(7, 6, 6);
 }
-nav {
-  display: flex;
-  justify-content: right;
-  gap: 10px;
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 .box {
@@ -41,7 +48,7 @@ main {
 
 h2 {
   color: lightgray;
-  font-size: 120px;
+  font-size: clamp(3rem, 2vw, 125px);
   font-family: sans-serif;
   max-width: 1130px;
   margin: 0 auto;
@@ -49,7 +56,7 @@ h2 {
 
 .Tekst {
   color: lightgray;
-  font-size: 25px;
+  font-size: clamp(1rem, 2vw, 25px);
   font-family: sans-serif;
   max-width: 800px;
   border-radius: 20px;

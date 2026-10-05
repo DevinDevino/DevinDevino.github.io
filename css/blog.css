@@ -1,85 +1,107 @@
-body{
-    background-image: url(../img/pink-black.jpg);
-    background-size: cover;
-    background-color: rgb(0, 0, 0);
+body {
+  background-image: url(../img/pink-black.jpg);
+  background-size: cover;
+  background-color: rgb(0, 0, 0);
 }
 header {
-
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgb(7, 6, 6);
+}
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
     align-items: center;
-    border-radius: 20px;
-    background-color: rgb(7, 6, 6);
-}
-nav {
-    display: flex;
-    justify-content: right;
-    gap: 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
-.box{
-    text-transform: uppercase;
-    color:rgb(255, 152, 203);
-    display: inline-block;
-    padding: 10px;
-    background-color: black;
-    border: 1px solid rgb(255, 152, 203);
-    border-radius: 100px;
-    padding: 10px;
-    margin: 5px;
-    text-decoration: none;
+.box {
+  text-transform: uppercase;
+  color: rgb(255, 152, 203);
+  display: inline-block;
+  padding: 10px;
+  background-color: black;
+  border: 1px solid rgb(255, 152, 203);
+  border-radius: 100px;
+  padding: 10px;
+  margin: 5px;
+  text-decoration: none;
 }
 
 .box:hover {
-    background-color: black;
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+  background-color: black;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 main {
-    text-align: center;
+  text-align: center;
 }
 
 .HeadTekst {
-    color: lightgray;
-    font-size: 120px;
-    font-family: sans-serif;
-    max-width: 1130px;
-    margin: 0 auto;
+  color: pink;
+  font-size: clamp(2.5rem, 6vw, 120px);
+  font-family: sans-serif;
+  margin: 20px auto;
 }
 
 .Tekst {
-    color: lightgray;
-    font-size: 25px;
-    font-family: sans-serif;
-    max-width: 800px;
-    border-radius: 20px;
-    margin: 0 auto;
+  color: lightgray;
+  font-size: clamp(1rem, 2vw, 25px);
+  font-family: sans-serif;
+  max-width: 800px;
+  border-radius: 20px;
+  margin: 0 auto;
 }
 
 .name {
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 3rem;
-    background:linear-gradient(to right,
-    orange, rgb(255,152,203), orange, rgb(255,152,203), orange);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 3rem;
+  background: linear-gradient(
+    to right,
+    orange,
+    rgb(255, 152, 203),
+    orange,
+    rgb(255, 152, 203),
+    orange
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .student {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: rgb(156, 62, 159);
-    display: inline-block;
-    padding: 10px;
-    background-color: black;
-    border: 1px solid rgb(156, 62, 159);
-    border-radius: 100px;
-    padding: 10px;
-    margin: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgb(156, 62, 159);
+  display: inline-block;
+  padding: 10px;
+  background-color: black;
+  border: 1px solid rgb(156, 62, 159);
+  border-radius: 100px;
+  padding: 10px;
+  margin: 5px;
 }
 
-.blog{
-    color: pink;
+.blog-card {
+  background-color: white;
+  border: 1px solid rgb(255, 152, 203);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  text-align: left;
+}
+
+.blog-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0px 10px pink;
 }

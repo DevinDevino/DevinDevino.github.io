@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/contact.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="name">Devin van Beek</h1>
+      <nav>
+        <a href="../index.html" class="box">Home</a>
+        <a href="./about.html" class="box">About</a>
+        <a href="./projects.html" class="box">Projects</a>
+        <a href="./blog.html" class="box">Blog</a>
+        <a href="#" class="box">Contact</a>
+      </nav>
+    </header>
+
+    <hr />
+
+    <main>
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h2>Laten we praten.</h2>
+          <p>
+            Heb je een vraag, een projectidee of wil je gewoon even hallo
+            zeggen?
+          </p>
+          <p class="red">Stuur me gerust een bericht!</p>
+        </div>
+
+        <div class="contact-container">
+          <h2>Contac mij</h2>
+          <form id="contact-form">
+            <label for="name">Naam:</label>
+            <input type="text" id="name" name="name" />
+            <p id="name-error" class="error-message"></p>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" />
+            <p id="email-error" class="error-message"></p>
+
+            <label for="message">Bericht:</label>
+            <textarea id="message" name="message"></textarea>
+            <p id="message-error" class="error-message"></p>
+
+            <button type="submit">Verstuur</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="../js/contact.js"></script>
+  </body>
+</html>
