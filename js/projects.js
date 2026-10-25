@@ -4,28 +4,28 @@ const projecten = [
     project: "Vang de volger",
     beschrijving:
       "Vang de volger is een klassieke opdracht waar je als een vis de visser moest opsluiten door het gebruik van dozen.",
-    taal: "Java",
+    taal:"Java"
   },
 
   {
     project: "Fresh Fridge",
     beschrijving:
       "Hier hebben we een applicatie gemaakt die alles opslaat dat je scant met een barcode scanner. Zo kon je makkelijk terugkijken wat er nog in de koelkast is.",
-    taal: "Java, HTML, CSS",
+    taal: ["Java", "HTML", "CSS"]
   },
 
   {
     project: "Hotel simulator",
     beschrijving:
       "Een simulatie van een hotel die wij moesten realizeren door de events die wij kregen via een library.",
-    taal: "Java",
+    taal: "Java"
   },
 
   {
     project: "Portfolio",
     beschrijving:
       "Mijn portfolio! Dat is deze website waar je momenteel naar kijkt!",
-    taal: "HTML, CSS, JavaScrypt",
+    taal: ["HTML", "CSS", "JavaScript"]
   },
 ];
 
@@ -78,10 +78,9 @@ filter.addEventListener("change", () => {
 
       return project.taal.includes(gekozenTaal);
     });
-  
 
-    projectContainer.innerHTML = "";
-
+    /*Eerst array leeg maken voordat weer array opschrijven.*/
+    projectContainer.innerHTML="";
     toonProjecten(gefilterdeProjecten);
   }
 });

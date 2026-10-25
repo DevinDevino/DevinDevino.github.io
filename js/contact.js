@@ -9,12 +9,19 @@ const messageError = document.getElementById("message-error");
 contactForm.addEventListener("submit", function (event) {
   event.preventDefault(); // Voorkom dat het formulier standaard wordt verzonden
 
+  //Naam validatie
   if (!nameInput.value) {
     nameError.textContent = "Vul alstublieft naam in.";
+    return;
+  }
+  if (nameInput.value.length <= 2) {
+    nameError.textContent = "Naam moet minimaal 3 karakters lang zijn.";
     return;
   } else {
     nameError.textContent = "";
   }
+
+  // Email validatie
   if (!emailInput.value || !emailInput.checkValidity()) {
     emailError.textContent = "Vul alstublieft een geldig email in.";
     console.log("Email is niet geldig:", emailInput.value);
@@ -22,8 +29,14 @@ contactForm.addEventListener("submit", function (event) {
   } else {
     emailError.textContent = "";
   }
+
+  // Bericht validatie
   if (!messageInput.value) {
     messageError.textContent = "Vul alstublieft bericht in.";
+    return;
+  }
+  if (messageInput.value.length <= 10) {
+    messageError.textContent = "Bericht moet minimaal 10 karakters lang zijn.";
     return;
   } else {
     messageError.textContent = "";
@@ -34,4 +47,3 @@ contactForm.addEventListener("submit", function (event) {
   console.log("Bericht:", messageInput.value);
   console.log("Formulier verzonden!");
 });
-

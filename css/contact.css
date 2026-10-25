@@ -129,7 +129,7 @@ h2{
     margin: 0;
     padding: 30px;
     border-radius: 20px;
-    background-color: white;
+    background-color: lightgray;
 }
 
 .error-message {
