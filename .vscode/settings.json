@@ -1,0 +1,14 @@
+{
+    "dotnet.defaultSolution": "DevinDevino.github.io.slnx",
+    "editor.inlineSuggest.enabled": true,
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.parameterHints.enabled": true,
+    "github.copilot.enable": {
+        "*": false
+    }
+}

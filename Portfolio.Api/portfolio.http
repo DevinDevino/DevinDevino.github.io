@@ -1,0 +1,33 @@
+GET http://localhost:5137/blog
+
+###
+GET http://localhost:5137/blog/1
+
+###
+POST http://localhost:5137/blog
+Content-Type: application/json
+
+{
+    "titel": "Mijn vierde blog",
+    "beschrijving": "Dit is mijn vierde blog",
+    "datum": "2023-04-01"
+}
+
+
+###
+GET http://localhost:5137/blog/4
+
+
+###
+PUT http://localhost:5137/blog/1
+Content-Type: application/json
+{
+    "titel": "Mijn eerste blog",
+    "beschrijving": "Wat als dit niet mijn eerste blog is?",
+    "datum": "2023-01-01"
+}
+
+
+
+###
+DELETE http://localhost:5137/blog/1
