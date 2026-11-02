@@ -1,0 +1,10 @@
+###
+POST http://localhost:5137/blog
+Content-Type: application/json
+
+{
+    "titel": "Mijn vierde blog",
+    "categorieId": 2,
+    "beschrijving": "Dit is mijn vierde blog",
+    "datum": "2023-04-01"
+}

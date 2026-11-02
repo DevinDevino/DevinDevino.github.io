@@ -1,8 +1,9 @@
 namespace Portfolio.Api.Dtos;
 
 public record BlogDto(
-    int id,
-    string titel,
-    string beschrijving,
-    DateOnly datum
+    int Id,
+    string Titel,
+    string Categorie,
+    string Beschrijving,
+    DateOnly Datum
 );
