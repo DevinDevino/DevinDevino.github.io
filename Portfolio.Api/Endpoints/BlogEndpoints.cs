@@ -1,12 +1,14 @@
 using Portfolio.Api.Data;
 using Portfolio.Api.Dtos;
 using Portfolio.Api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Portfolio.Api.Endpoints;
 
 public static class BlogEndpoints
 {
     const string GetBlogEndpointName = "GetBlog";
+    const string GetSqliteBlogEndpointName = "GetSqliteBlog";
 
 
     private static readonly List<BlogDto> blogs =
@@ -36,6 +38,7 @@ public static class BlogEndpoints
     )
     ];
 
+    // De code heeft voor nu nog een 
     public static void MapBlogEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("/blog");
@@ -54,30 +57,120 @@ public static class BlogEndpoints
         .WithName(GetBlogEndpointName);
 
         //POST /blog
-        group.MapPost("/", (CreateBlogDto newBlog, BlogContext dbContext) =>
+        group.MapPost("/", (CreateBlogDto newBlog) =>
         {
-            Blog blog = new()
+            var blog = new BlogDto(
+                blogs.Count == 0 ? 1 : blogs.Max(blog => blog.Id) + 1,
+                newBlog.Titel,
+                newBlog.Categorie,
+                newBlog.Beschrijving,
+                newBlog.Datum
+            );
+
+            blogs.Add(blog);
+            return Results.CreatedAtRoute(GetBlogEndpointName, new { id = blog.Id }, blog);
+        });
+
+        //GET /blog/sqlite
+        group.MapGet("/sqlite", async (BlogContext dbContext) =>
+            await dbContext.Blogs
+                .OrderBy(blog => blog.Id)
+                .Select(blog => new BlogDetailsDto(
+                    blog.Id,
+                    blog.Titel,
+                    blog.CategorieId,
+                    blog.Beschrijving,
+                    blog.datum))
+                .ToListAsync());
+
+        //GET /blog/sqlite/{id}
+        group.MapGet("/sqlite/{id:int}", async (int id, BlogContext dbContext) =>
+        {
+            var blog = await dbContext.Blogs
+                .Where(blog => blog.Id == id)
+                .Select(blog => new BlogDetailsDto(
+                    blog.Id,
+                    blog.Titel,
+                    blog.CategorieId,
+                    blog.Beschrijving,
+                    blog.datum))
+                .FirstOrDefaultAsync();
+
+            return blog is null ? Results.NotFound() : Results.Ok(blog);
+        })
+        .WithName(GetSqliteBlogEndpointName);
+
+        //POST /blog/sqlite
+        group.MapPost("/sqlite", async (CreateSqliteBlogDto newBlog, BlogContext dbContext) =>
+        {
+            var categoryExists = await dbContext.Set<Categorie>()
+                .AnyAsync(category => category.Id == newBlog.CategorieId);
+
+            if (!categoryExists)
+            {
+                return Results.BadRequest($"Categorie {newBlog.CategorieId} bestaat niet.");
+            }
+
+            var blog = new Blog
             {
                 Titel = newBlog.Titel,
-                CategorieId = newBlog.CategorieID,
+                CategorieId = newBlog.CategorieId,
                 Beschrijving = newBlog.Beschrijving,
                 datum = newBlog.Datum
             };
-            
-            dbContext.Blogs.Add(blog);
-            dbContext.SaveChanges();
 
-            BlogDetailsDto blogDto = new(
+            dbContext.Blogs.Add(blog);
+            await dbContext.SaveChangesAsync();
+
+            var blogDto = new BlogDetailsDto(
                 blog.Id,
                 blog.Titel,
                 blog.CategorieId,
                 blog.Beschrijving,
-                blog.datum
-            );
+                blog.datum);
 
-            return Results.CreatedAtRoute(GetBlogEndpointName, new { id = blog.Id }, blog);
+            return Results.CreatedAtRoute(GetSqliteBlogEndpointName, new { id = blog.Id }, blogDto);
         });
 
+        //PUT /blog/sqlite/{id}
+        group.MapPut("/sqlite/{id:int}", async (int id, UpdateSqliteBlogDto updateBlog, BlogContext dbContext) =>
+        {
+            var blog = await dbContext.Blogs.FindAsync(id);
+            if (blog is null)
+            {
+                return Results.NotFound();
+            }
+
+            var categoryExists = await dbContext.Set<Categorie>()
+                .AnyAsync(category => category.Id == updateBlog.CategorieId);
+
+            if (!categoryExists)
+            {
+                return Results.BadRequest($"Categorie {updateBlog.CategorieId} bestaat niet.");
+            }
+
+            blog.Titel = updateBlog.Titel;
+            blog.CategorieId = updateBlog.CategorieId;
+            blog.Beschrijving = updateBlog.Beschrijving;
+            blog.datum = updateBlog.Datum;
+
+            await dbContext.SaveChangesAsync();
+            return Results.NoContent();
+        });
+
+        //DELETE /blog/sqlite/{id}
+        group.MapDelete("/sqlite/{id:int}", async (int id, BlogContext dbContext) =>
+        {
+            var blog = await dbContext.Blogs.FindAsync(id);
+            if (blog is null)
+            {
+                return Results.NotFound();
+            }
+
+            dbContext.Blogs.Remove(blog);
+            await dbContext.SaveChangesAsync();
+            return Results.NoContent();
+        });
 
         //PUT /blog/1
         group.MapPut("/{id}", (int id, UpdateBlogDto updateBlog) =>

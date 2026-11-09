@@ -1,13 +1,14 @@
-GET http://localhost:5137/blog
+### Shortut
+@baseUrl = http://localhost:5137
 
-###
-GET http://localhost:5137/blog/1
+### GET all van interne 'entity.'
+GET {{baseUrl}}/blog
 
-###
-GET http://localhost:5137/blog/5
+### GET 'entity' met id.
+GET {{baseUrl}}/blog/1
 
-###
-POST http://localhost:5137/blog
+### Maakt 'entity' aan.
+POST {{baseUrl}}/blog
 Content-Type: application/json
 
 {
@@ -17,13 +18,8 @@ Content-Type: application/json
     "datum": "2023-04-01"
 }
 
-
-###
-GET http://localhost:5137/blog/4
-
-
-###
-PUT http://localhost:5137/blog/1
+### Update een 'entity.'
+PUT {{baseUrl}}/blog/1
 Content-Type: application/json
 
 {
@@ -33,7 +29,5 @@ Content-Type: application/json
     "datum": "2023-01-01"
 }
 
-
-
-###
-DELETE http://localhost:5137/blog/1
+### DELETE een 'entity.'
+DELETE {{baseUrl}}/blog/1

@@ -1,10 +1,33 @@
-###
-POST http://localhost:5137/blog
+@baseUrl = http://localhost:5137
+
+### Get all blogs stored in SQLite
+GET {{baseUrl}}/blog/sqlite
+
+### Create a blog in SQLite using EF Core
+# @name createSqliteBlog
+POST {{baseUrl}}/blog/sqlite
 Content-Type: application/json
 
 {
-    "titel": "Mijn vierde blog",
+    "titel": "Blog opgeslagen met EF Core",
     "categorieId": 2,
-    "beschrijving": "Dit is mijn vierde blog",
+    "beschrijving": "Deze blog wordt opgeslagen in SQLite.",
     "datum": "2023-04-01"
 }
+
+### Get SQLite blog with ID 8
+GET {{baseUrl}}/blog/sqlite/8
+
+### Update SQLite blog with ID 8 (replace 8 with the ID you want to edit)
+PUT {{baseUrl}}/blog/sqlite/8
+Content-Type: application/json
+
+{
+    "titel": "Blog bijgewerkt met EF Core",
+    "categorieId": 2,
+    "beschrijving": "De gegevens van deze blog zijn aangepast.",
+    "datum": "2023-04-02"
+}
+
+### Delete SQLite blog with ID 8
+DELETE {{baseUrl}}/blog/sqlite/8
